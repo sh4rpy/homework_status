@@ -49,6 +49,7 @@ def send_message(message):
 
 
 def main():
+    print('ALL OK')
     current_timestamp = int(time.time())  # начальное значение timestamp
     while True:
         try:
