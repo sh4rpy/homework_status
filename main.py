@@ -32,6 +32,7 @@ def get_homework_statuses(current_timestamp):
         homework_statuses = requests.get(
             url, timeout=30, params=params, headers=headers)
         homework_statuses.raise_for_status()
+        print('Status of the homework was received successfully')
         return homework_statuses.json()
     except requests.HTTPError as err:
         code = err.response.status_code
