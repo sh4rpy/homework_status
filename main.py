@@ -36,11 +36,11 @@ def get_homework_statuses(current_timestamp):
         return homework_statuses.json()
     except requests.HTTPError as err:
         code = err.response.status_code
-        print(f'Ошибка: {code}')
+        print(f'Error: {code}')
     except requests.Timeout:
-        print('Ошибка: Timeout')
+        print('Error: Timeout')
     except requests.RequestException:
-        print(f'Запрос не удался по адресу: {url}')
+        print(f'The request failed at the address: {url}')
     return {}
 
 
@@ -49,8 +49,7 @@ def send_message(message):
 
 
 def main():
-    print('ALL OK')
-    current_timestamp = int(time.time())  # начальное значение timestamp
+    current_timestamp = int(time.time())
     while True:
         try:
             new_homework = get_homework_statuses(current_timestamp)
@@ -58,12 +57,12 @@ def main():
             if homeworks:
                 send_message(parse_homework_status(homeworks[0]))
             current_timestamp = new_homework.get(
-                'current_date', int(time.time()))  # обновить timestamp
-            time.sleep(1200)  # опрашивать раз в 20 минут
+                'current_date', int(time.time()))
+            time.sleep(1200)
         except KeyboardInterrupt:
             break
         except Exception as e:
-            print(f'Бот упал с ошибкой: {e}')
+            print(f'The bot is down with an error: {e}')
             time.sleep(5)
 
 

@@ -1,2 +1,5 @@
-# homewors_status
-The bot checks the status of the current homework assignment and sends a resume from the code reviewer
+# Homework status
+
+### Что ты такое?
+
+Телеграм-бот, дергающий api Яндекс.Практикума в надежде узнать, проверил ли ревьюер очередной проект. Если да, то присылает сообщение с резюме от ревьюера. Если нет - ждем 20 минут и снова дергаем api.
